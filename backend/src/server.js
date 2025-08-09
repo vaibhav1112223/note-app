@@ -10,7 +10,7 @@ import { rateLimitMiddleware } from "../src/middleware/rateLimiter.js"
 
 
 dotenv.config()
-const PORT=process.env.PORT
+const PORT=process.env.PORT || 5001
 const __dirname=path.resolve()
 if(process.env.NODE_ENV!=="production"){
     app.use(cors({
