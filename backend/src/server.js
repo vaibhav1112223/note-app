@@ -21,10 +21,10 @@ if(process.env.NODE_ENV!=="production"){
 
                                         
 app.use(express.json())
-app.use((req,res,next)=>{
-    console.log("we just got a new req")
-    next()
-})
+// app.use((req,res,next)=>{
+//     console.log("we just got a new req")
+//     next()
+// })
 
 app.use("/api",rateLimitMiddleware)
 app.use("/api/notes",notesRoutes)
