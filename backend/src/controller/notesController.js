@@ -1,10 +1,11 @@
 import Note from "../models/Note.js"
 
-export const getAllnotes=async(_,res)=>{
+export const getAllnotes=async(req,res)=>{
   try{
 const notes=await Note.find().sort({createdAt:-1})
 res.status(200).json(notes)
   }catch(error){
+    console.error(error.message)
 res.status(500).json({message:"internal server error"})
   }
 }
@@ -16,6 +17,7 @@ if(!note) return res.status(404).json({message:"note not found!"})
 res.json(note)
     }
     catch(error){
+            console.error(error.message)
 console.error("error in getnote controlller",error)
 res.status(500).json({message:"internal server error"})
     }
@@ -30,6 +32,7 @@ try{
     res.status(201).json(savedNote)
 }
 catch(error){
+       
 console.error("error in getallnote controlller",error)
 res.status(500).json({message:"internal server error"})
 }
